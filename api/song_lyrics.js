@@ -10,7 +10,7 @@ const song_lyrics = async (url) => {
 		const re_ft = /\"\"/gi;
 		const re = /\"/gi;
 		const re_nl = /(\r\n|\r|\n){3,}/gi;
-		//const re_clear_front = /\w{1,}Lyrics\n\n/gi
+		//const re_clear_front = /\w{1,}Lyrics\n\n/gi;
 
 		const song = {
 			name: $('b', data).text().replace(re_ft, " / Album - ").replace(re, "").replace("Lyrics", "- "),
