@@ -18,10 +18,12 @@ const cookieJar = new tough.CookieJar();
 router.get("/", async (req, res)=>{
     try {
 		const url = 'https://search.azlyrics.com/search.php?q=' + req.body.name.replace(' ', '+') + '&w=songs&p=1';
-
+//res.send("test");
 		await axios.get(url, {
             jar: cookieJar, // tough.CookieJar or boolean
-            withCredentials: true, // If true, send cookie stored in jar
+			//credentials: 'include',
+			withCredentials: true, // If true, send cookie stored in jar
+			headers: {'X-Requested-With':'XMLHttpRequest'}
 		})
 		/*got.get(url)*/
 		.then((response) => {
